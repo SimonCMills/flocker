@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Extract lik_type from object of class flocker_fit — type_flocker_fit • flocker</title>
+<title>Get posterior predictions from a flocker model — predict_flocker • flocker</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Extract lik_type from object of class flocker_fit — type_flocker_fit" />
-<meta property="og:description" content="Extract lik_type from object of class flocker_fit" />
+<meta property="og:title" content="Get posterior predictions from a flocker model — predict_flocker" />
+<meta property="og:description" content="Get posterior predictions from a flocker model" />
 
 
 
@@ -120,26 +120,77 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Extract lik_type from object of class flocker_fit</h1>
-    <small class="dont-index">Source: <a href='https://github.com/jsocolar/flocker/blob/master/R/utils.R'><code>R/utils.R</code></a></small>
-    <div class="hidden name"><code>type_flocker_fit.Rd</code></div>
+    <h1>Get posterior predictions from a flocker model</h1>
+    <small class="dont-index">Source: <a href='https://github.com/jsocolar/flocker/blob/master/R/predict_flocker.R'><code>R/predict_flocker.R</code></a></small>
+    <div class="hidden name"><code>predict_flocker.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Extract lik_type from object of class flocker_fit</p>
+    <p>Get posterior predictions from a flocker model</p>
     </div>
 
-    <pre class="usage"><span class='fu'>type_flocker_fit</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>predict_flocker</span><span class='op'>(</span>
+  <span class='va'>flocker_fit</span>,
+  n_iter <span class='op'>=</span> <span class='cn'>NULL</span>,
+  new_data <span class='op'>=</span> <span class='cn'>NULL</span>,
+  hist_condition <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  mixed <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  sample_new_levels <span class='op'>=</span> <span class='st'>"uncertainty"</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>x</th>
-      <td><p>flocker_fit object</p></td>
+      <th>flocker_fit</th>
+      <td><p>A `flocker_fit` object</p></td>
+    </tr>
+    <tr>
+      <th>n_iter</th>
+      <td><p>The number of posterior iterations desired. If `NULL`, use
+all available posterior iterations.</p></td>
+    </tr>
+    <tr>
+      <th>new_data</th>
+      <td><p>Optional new data at which to predict. If `NULL`, predictions
+are given at the data points used for model fitting ("retrodictions")</p></td>
+    </tr>
+    <tr>
+      <th>hist_condition</th>
+      <td><p>Logical indicator of whether to directly condition the 
+posterior for the occupancy state on the observed detection histories.
+For example, at sites with at least one detection, the true occupancy 
+state conditioned on the history is one with absolute certainty. Without 
+directly conditioning on the history, the occupancy state is controlled 
+by the posterior distribution for the occupancy probability psi. Of 
+course even without conditioning directly on the detection history, we 
+still condition indirectly on the observed history via the fitted value 
+of psi, which itself depends on all of the observed detection histories.</p></td>
+    </tr>
+    <tr>
+      <th>mixed</th>
+      <td><p>When `new_data` is not provided, should random effect levels be
+drawn from their posteriors (`FALSE`, the default) or re-sampled from 
+their fitted hyperparameters (`TRUE`). The latter can be useful for mixed
+predictive checking.</p></td>
+    </tr>
+    <tr>
+      <th>sample_new_levels</th>
+      <td><p>If new_data is provided and contains random effect
+levels not present in the original data, how should predictions be
+handled? Passed directly to brms::prepare_predictions, which see.</p></td>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>An array of posterior predictions. If the model is rep-varying, 
+    then a 3-dimensional array where the first dimension is the closure-unit,
+    the second dimension is the rep, the third dimension is the iteration, 
+    and the value is 1, 0, or NA indicating detection, non-detection, or 
+    non-existence of the sampling event.
+    If the model is rep-constant, then a matrix where rows are iterations,
+    columns are closure-units, and values are the number of successes.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

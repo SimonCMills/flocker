@@ -6,7 +6,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Extract lik_type from object of class flocker_fit — type_flocker_fit • flocker</title>
+<title>Get matrix positions corresponding to each row of data in rep-varying 
+flocker_fit — get_positions_V • flocker</title>
 
 
 <!-- jquery -->
@@ -39,8 +40,10 @@
 
 
 
-<meta property="og:title" content="Extract lik_type from object of class flocker_fit — type_flocker_fit" />
-<meta property="og:description" content="Extract lik_type from object of class flocker_fit" />
+<meta property="og:title" content="Get matrix positions corresponding to each row of data in rep-varying 
+flocker_fit — get_positions_V" />
+<meta property="og:description" content="Get matrix positions corresponding to each row of data in rep-varying 
+flocker_fit" />
 
 
 
@@ -120,26 +123,32 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Extract lik_type from object of class flocker_fit</h1>
+    <h1>Get matrix positions corresponding to each row of data in rep-varying 
+flocker_fit</h1>
     <small class="dont-index">Source: <a href='https://github.com/jsocolar/flocker/blob/master/R/utils.R'><code>R/utils.R</code></a></small>
-    <div class="hidden name"><code>type_flocker_fit.Rd</code></div>
+    <div class="hidden name"><code>get_positions_V.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Extract lik_type from object of class flocker_fit</p>
+    <p>Get matrix positions corresponding to each row of data in rep-varying 
+flocker_fit</p>
     </div>
 
-    <pre class="usage"><span class='fu'>type_flocker_fit</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>get_positions_V</span><span class='op'>(</span><span class='va'>flocker_fit</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>x</th>
-      <td><p>flocker_fit object</p></td>
+      <th>flocker_fit</th>
+      <td><p>a rep-varying `flocker_fit` object</p></td>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>an n_row x 2 matrix, where each row contains the indices of the 
+    corresponding sampling event in the observation dataframe</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
