@@ -158,6 +158,16 @@ internally in log_lik_V(). Missing events are returned as 0s</p></td>
       </tr><tr>
         
         <td>
+          <p><code><a href="fitted_flocker.html">fitted_flocker()</a></code> </p>
+        </td>
+        <td><p>Get expected values of the posterior predictive distribution for the occupancy
+component, the detection component, or both. Note that in the case of the 
+detection component, you are conditioning on occupancy being 1. Note that these 
+are values for a hypothetical set of unit covariates rather than the ones 
+actually observed (some of which are known to be occupied, when Q == 1).</p></td>
+      </tr><tr>
+        
+        <td>
           <p><code><a href="flock.html">flock()</a></code> </p>
         </td>
         <td><p>Fit an occupancy model</p></td>
