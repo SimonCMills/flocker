@@ -60,7 +60,7 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">loo_compare_flocker</span><span class="op">(</span><span class="va">x</span>, model_names <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">loo_compare_flocker</span><span class="op">(</span><span class="va">x</span>, model_names <span class="op">=</span> <span class="cn">NULL</span>, thin <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -69,6 +69,8 @@
 <dd><p>a list of flocker_fit objects.</p></dd>
 <dt>model_names</dt>
 <dd><p>An optional vector of names for the models.</p></dd>
+<dt>thin</dt>
+<dd><p>specify the amount of thinning required. 1 or NULL implies no thinning, 2 implies every other value, 3 every third, etc.</p></dd>
 </dl></div>
 
   </div>
