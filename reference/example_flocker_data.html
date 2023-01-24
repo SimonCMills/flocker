@@ -60,13 +60,13 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">example_flocker_data</span><span class="op">(</span>
-  rep_constant <span class="op">=</span> <span class="cn">FALSE</span>,
-  seed <span class="op">=</span> <span class="fl">123</span>,
-  n_pt <span class="op">=</span> <span class="fl">30</span>,
-  n_sp <span class="op">=</span> <span class="fl">30</span>,
-  n_rep <span class="op">=</span> <span class="fl">4</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">example_flocker_data</span><span class="op">(</span></span>
+<span>  rep_constant <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  seed <span class="op">=</span> <span class="fl">123</span>,</span>
+<span>  n_pt <span class="op">=</span> <span class="fl">30</span>,</span>
+<span>  n_sp <span class="op">=</span> <span class="fl">30</span>,</span>
+<span>  n_rep <span class="op">=</span> <span class="fl">4</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -74,18 +74,29 @@
     <dl><dt>rep_constant</dt>
 <dd><p>logical: create data with unit covariates only (TRUE) 
 or data that includes event covariates (FALSE)</p></dd>
+
+
 <dt>seed</dt>
 <dd><p>random seed. To use existing RNG state set to NULL.</p></dd>
+
+
 <dt>n_pt</dt>
 <dd><p>number of points to simulate.</p></dd>
+
+
 <dt>n_sp</dt>
 <dd><p>number of species to simulate.</p></dd>
+
+
 <dt>n_rep</dt>
 <dd><p>number of replicates to simulate.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A three element named list with the observation matrix ($obs), the
+    
+
+<p>A three element named list with the observation matrix ($obs), the
 unit covariate dataframe ($unit_covs), and the event covariate list
 ($rep_covs). If rep_constant is TRUE, then $rep_covs will be NULL.</p>
     </div>
@@ -102,7 +113,7 @@ unit covariate dataframe ($unit_covs), and the event covariate list
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

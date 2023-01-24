@@ -60,7 +60,7 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">make_flocker_data</span><span class="op">(</span><span class="va">obs</span>, unit_covs <span class="op">=</span> <span class="cn">NULL</span>, event_covs <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">make_flocker_data</span><span class="op">(</span><span class="va">obs</span>, unit_covs <span class="op">=</span> <span class="cn">NULL</span>, event_covs <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -69,16 +69,23 @@
 <dd><p>An I x J matrix-like object where closure is assumed across rows 
 and columns are repeated sampling events. Allowable values are 1 (detection), 
 0 (no detection), and NA (no sampling event).</p></dd>
+
+
 <dt>unit_covs</dt>
 <dd><p>A dataframe of covariates for each unit that are constant 
 across repeated sampling events within closure-units.</p></dd>
+
+
 <dt>event_covs</dt>
 <dd><p>A named list of I x J matrices, each one corresponding to a covariate
 that varies across repeated sampling events within closure-units</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A flocker_data list that can be passed as data to <code>flocker()</code>.</p>
+    
+
+<p>A flocker_data list that can be passed as data to <code>flocker()</code>.</p>
     </div>
 
   </div>
@@ -93,7 +100,7 @@ that varies across repeated sampling events within closure-units</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

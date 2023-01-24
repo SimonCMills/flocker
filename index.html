@@ -80,7 +80,6 @@
 <div class="page-header"><h1 id="flocker-flexible-occupancy-estimation-in-r">flocker: flexible occupancy estimation in R<a class="anchor" aria-label="anchor" href="#flocker-flexible-occupancy-estimation-in-r"></a>
 </h1></div>
 <!-- badges: start -->
-
 <p>The <code>flocker</code> R package enables users to fit flexible occupancy models using the extended <code>lme4</code> formula syntax provided by R package <code>brms</code>. Also included are functions to format data for occupancy modeling and functions for model post-processing, including posterior predictions, the posterior distribution of the latent true occupancy state, and model comparison. <code>flocker</code> is under active development: development priorities include better direct functionality for posterior predictive checking and implementation of dynamic (multiseason) occupancy models and N-mixture models.</p>
 <p>Compared to existing R packages for fitting occupancy models, <code>flocker</code> is substantially more flexible in the variety of single-season models that can be fit, and contains advanced functionality for model comparison and checking.</p>
 <div class="section level3">
@@ -92,17 +91,17 @@
 <h3 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h3>
 <p>Install <code>flocker</code> in R with</p>
-<pre><code><span class="co"># install.packages("remotes")</span>
-<span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"jsocolar/flocker"</span><span class="op">)</span></code></pre>
+<pre><code><span><span class="co"># install.packages("remotes")</span></span>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"jsocolar/flocker"</span><span class="op">)</span></span></code></pre>
 <p><code>flocker</code> requires a working version of either Rstan or cmdstan, which are interfaces to <a href="https://mc-stan.org/" class="external-link">Stan</a>, a state-of-the-art the probabilistic programming language. We recommend using cmdstan if possible. To do so, first install R package <code>cmdstanr</code> with</p>
-<pre><code><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"cmdstanr"</span>, repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"https://mc-stan.org/r-packages/"</span>, <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"repos"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre>
+<pre><code><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"cmdstanr"</span>, repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"https://mc-stan.org/r-packages/"</span>, <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"repos"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 <p>You must additionally install cmdstan itself. We strongly recommend using <code>cmdstanr</code> to manage the cmdstan installation:</p>
-<pre><code><span class="fu">cmdstanr</span><span class="fu">::</span><span class="fu"><a href="https://mc-stan.org/cmdstanr/reference/install_cmdstan.html" class="external-link">install_cmdstan</a></span><span class="op">(</span><span class="op">)</span></code></pre>
+<pre><code><span><span class="fu">cmdstanr</span><span class="fu">::</span><span class="fu"><a href="https://mc-stan.org/cmdstanr/reference/install_cmdstan.html" class="external-link">install_cmdstan</a></span><span class="op">(</span><span class="op">)</span></span></code></pre>
 <p>If using Rstan, we strongly recommend installing the development version rather than the CRAN version. In a fresh R session, do</p>
-<pre><code><span class="co"># Uncomment the next line if you have previously installed rstan</span>
-<span class="co"># remove.packages(c("StanHeaders", "rstan"))</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"StanHeaders"</span>, repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"https://mc-stan.org/r-packages/"</span>, <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"repos"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"rstan"</span>, repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"https://mc-stan.org/r-packages/"</span>, <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"repos"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre>
+<pre><code><span><span class="co"># Uncomment the next line if you have previously installed rstan</span></span>
+<span><span class="co"># remove.packages(c("StanHeaders", "rstan"))</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"StanHeaders"</span>, repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"https://mc-stan.org/r-packages/"</span>, <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"repos"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"rstan"</span>, repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"https://mc-stan.org/r-packages/"</span>, <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"repos"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 <p>Both Rstan and cmdstan require a working C++ toolchain, which has posed occasional complications for Stan users. <a href="https://github.com/stan-dev/rstan/wiki/RStan-Getting-Started" class="external-link">See here</a> for Rstan-focused advice on installing the toolchain, and <a href="https://mc-stan.org/cmdstanr/articles/cmdstanr.html" class="external-link">see here</a> for cmdstan-focused advice. If you encounter toolchain issues that you are unable to troubleshoot, ask for help at <a href="https://discourse.mc-stan.org/" class="external-link uri">https://discourse.mc-stan.org/</a>.</p>
 </div>
 <div class="section level3">
@@ -172,7 +171,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer>

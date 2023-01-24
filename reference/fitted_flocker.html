@@ -80,56 +80,77 @@ actually observed (some of which are known to be occupied, when Q == 1).</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">fitted_flocker</span><span class="op">(</span>
-  <span class="va">flocker_fit</span>,
-  <span class="va">type</span>,
-  new_data <span class="op">=</span> <span class="cn">NULL</span>,
-  CI <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.05</span>, <span class="fl">0.95</span><span class="op">)</span>,
-  ndraws <span class="op">=</span> <span class="cn">NULL</span>,
-  response <span class="op">=</span> <span class="cn">TRUE</span>,
-  re_formula <span class="op">=</span> <span class="cn">NULL</span>,
-  summarise <span class="op">=</span> <span class="cn">TRUE</span>,
-  allow_new_levels <span class="op">=</span> <span class="cn">FALSE</span>,
-  sample_new_levels <span class="op">=</span> <span class="st">"uncertainty"</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">fitted_flocker</span><span class="op">(</span></span>
+<span>  <span class="va">flocker_fit</span>,</span>
+<span>  <span class="va">type</span>,</span>
+<span>  new_data <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  CI <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.05</span>, <span class="fl">0.95</span><span class="op">)</span>,</span>
+<span>  ndraws <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  response <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  re_formula <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  summarise <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  allow_new_levels <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  sample_new_levels <span class="op">=</span> <span class="st">"uncertainty"</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>flocker_fit</dt>
 <dd><p>A flocker_fit object.</p></dd>
+
+
 <dt>type</dt>
 <dd><p>Get posterior probabilities for 'occupancy', 'detection', or for 
 'both'.</p></dd>
+
+
 <dt>new_data</dt>
 <dd><p>Optional new data at which to evaluate occupancy predictions. 
 If `NULL` (the default) expected values are generated for the original data.</p></dd>
+
+
 <dt>CI</dt>
 <dd><p>A vector of length 2 specifying the upper and lower bounds of the 
 credible interval. Defaults to c(.05, .95)</p></dd>
+
+
 <dt>ndraws</dt>
 <dd><p>Positive integer indicating how many poserior draws should be 
 used. If `NULL` (the default) all draws are used.</p></dd>
+
+
 <dt>response</dt>
 <dd><p>Should expected values be returned on the response or logit-scale? 
 Defaults to `TRUE`, i.e. response scale.</p></dd>
+
+
 <dt>re_formula</dt>
 <dd><p>formula containing group-level effects to be considered in 
 the prediction. If `NULL` (default), include all group-level effects; if 
 NA, include no group-level effects.</p></dd>
+
+
 <dt>summarise</dt>
 <dd><p>if TRUE, return the expected value and upper and lower bound 
 of the credible interval, otherwise return the posterior matrix.</p></dd>
+
+
 <dt>allow_new_levels</dt>
 <dd><p>allow new levels in new_data?</p></dd>
+
+
 <dt>sample_new_levels</dt>
 <dd><p>If new_data is provided and contains random effect
 levels not present in the original data, how should predictions be
 handled? Passed directly to brms::prepare_predictions.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A data.frame containing the columns used to generate expected values 
+    
+
+<p>A data.frame containing the columns used to generate expected values 
     and the estimate and its credible interval (lower and upper bounds)</p>
     </div>
 
@@ -145,7 +166,7 @@ handled? Passed directly to brms::prepare_predictions.</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>
